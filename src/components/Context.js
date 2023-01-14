@@ -10,8 +10,6 @@ const ContextProvider = ({ children }) => {
   {id:3,text: "book",amount: -10},
   {id:4,text: "camera",amount: 150},])
 
-  console.log(transactions);
-
   return <Context.Provider value={transactions}>{children}</Context.Provider>;
 };
 
