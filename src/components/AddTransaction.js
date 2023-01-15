@@ -20,8 +20,6 @@ const AddTransaction = () => {
     });
   };
 
-  
-
   const handleSubmit = (e) => {
     const newTransaction = {
       text: inputs.text,
@@ -30,8 +28,10 @@ const AddTransaction = () => {
     };
     e.preventDefault();
     addNewTransaction(newTransaction);
-    inputs.text = "";
-    inputs.amount = "";
+    setInputs({
+      text: "",
+      amount: "",
+    });
   };
 
   return (

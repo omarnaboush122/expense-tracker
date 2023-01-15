@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -18,6 +19,11 @@ const ContextProvider = ({ children }) => {
       newTransaction,
     ]);
   };
+
+  useEffect(()=> {
+    localStorage.setItem("transactions",JSON.stringify(transactions));
+  },[transactions])
+
 
   return (
     <Context.Provider
