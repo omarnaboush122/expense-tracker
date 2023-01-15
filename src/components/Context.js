@@ -20,10 +20,13 @@ const ContextProvider = ({ children }) => {
     ]);
   };
 
-  useEffect(()=> {
-    localStorage.setItem("transactions",JSON.stringify(transactions));
-  },[transactions])
+  useEffect(() => {
+    setTransactions(JSON.parse(localStorage.getItem("transactions")));
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   return (
     <Context.Provider
