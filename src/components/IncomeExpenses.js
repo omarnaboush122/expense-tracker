@@ -1,6 +1,8 @@
 
 
+
 const IncomeExpenses = () => {
+
   return (
     <div className="inc-exp-container">
       <div>
