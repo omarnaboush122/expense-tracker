@@ -4,12 +4,7 @@ import { createContext } from "react";
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [transactions, setTransactions] = useState([
-    { id: 1, text: "flower", amount: -20 },
-    { id: 2, text: "salary", amount: 300 },
-    { id: 3, text: "book", amount: -10 },
-    { id: 4, text: "camera", amount: 150 },
-  ]);
+  const [transactions, setTransactions] = useState([]);
 
   const deleteTransaction = (id) => {
     setTransactions(
@@ -17,8 +12,17 @@ const ContextProvider = ({ children }) => {
     );
   };
 
+  const addNewTransaction = (newTransaction) => {
+    setTransactions((prevTransactions) => [
+      ...prevTransactions,
+      newTransaction,
+    ]);
+  };
+
   return (
-    <Context.Provider value={{ transactions, deleteTransaction }}>
+    <Context.Provider
+      value={{ transactions, deleteTransaction, addNewTransaction }}
+    >
       {children}
     </Context.Provider>
   );
