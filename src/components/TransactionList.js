@@ -3,10 +3,10 @@ import { Context } from "./Context";
 import Transaction from "./Transaction";
 
 const TransactionList = () => {
-  const transactions = useContext(Context);
+  const {transactions,deleteTransaction} = useContext(Context);
   
   const transactionsElements = transactions.map(transaction => (
-    <Transaction key={transaction.id} transaction={transaction}/>
+    <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>
   ))
   return (
     <>

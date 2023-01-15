@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "./Context";
 
 const IncomeExpenses = () => {
-  const transactions = useContext(Context);
+  const {transactions} = useContext(Context);
   const amount = transactions.map((transaction) => transaction.amount);
   const income = amount.filter((amount) => amount > 0);
   const totalIncome = income
