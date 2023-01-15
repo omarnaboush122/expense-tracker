@@ -11,8 +11,11 @@ const IncomeExpenses = () => {
     return acc + curr;
   },0).toFixed(2);
   
-  console.log(amount);
-  console.log(income);
+  const expense = amount.filter(amount => amount < 0);
+  const totalExpense = expense.reduce((acc,curr) => {
+    return acc + curr;
+  },0).toFixed(2);
+
   return (
     <div className="inc-exp-container">
       <div>
@@ -21,7 +24,7 @@ const IncomeExpenses = () => {
       </div>
       <div>
         <h4>Expense</h4>
-        <p className="money minus">-$0.00</p>
+        <p className="money minus">-${totalExpense}</p>
       </div>
     </div>
   );
