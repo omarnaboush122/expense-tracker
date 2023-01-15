@@ -8,6 +8,7 @@ const Balance = () => {
   const total = amount.reduce((acc,curr) => {
     return acc + curr;
   },0).toFixed(2);
+
   return (
     <>
       <h4>Your Balance</h4>

@@ -1,13 +1,23 @@
+import { useContext } from "react";
+import { Context } from "./Context";
 
 
 
 const IncomeExpenses = () => {
-
+  const transactions = useContext(Context);
+  const amount = transactions.map(transaction => transaction.amount)
+  const income = amount.filter(amount => amount > 0);
+  const totalIncome = income.reduce((acc,curr) => {
+    return acc + curr;
+  },0).toFixed(2);
+  
+  console.log(amount);
+  console.log(income);
   return (
     <div className="inc-exp-container">
       <div>
         <h4>Income</h4>
-        <p className="money plus">+$0.00</p>
+        <p className="money plus">+${totalIncome}</p>
       </div>
       <div>
         <h4>Expense</h4>
